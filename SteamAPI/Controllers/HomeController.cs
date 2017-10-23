@@ -11,6 +11,8 @@ namespace SteamAPI.Controllers
 {
     public class HomeController : Controller
     {
+        public const string DefeaultID = "76561197960434622"; //gaben
+
         public IActionResult Index(string sortOrder, string searchString)
         {
             ViewData["GameSortParm"] = String.IsNullOrEmpty(sortOrder) || sortOrder == "game_asc" ? "game_desc" : "game_asc";
@@ -19,11 +21,18 @@ namespace SteamAPI.Controllers
             ViewData["CurrentFilter"] = searchString;
 
             Steam data = new Steam();
-            string id = "76561197960434622"; //gaben
-            var resp = data.MakeRequest(data.BuildURL(id));
-
             SteamViewModel model = new SteamViewModel();
 
+            string id = DefeaultID;
+
+            if (TempData["SteamID"] != null)
+            {
+                id = TempData["SteamID"].ToString();
+            }
+
+            var resp = data.MakeRequest(data.BuildURL(id));
+
+            
 
             //success
             if (resp.StatusCode == 200)
@@ -82,17 +91,17 @@ namespace SteamAPI.Controllers
 
             if (id == null)
             {
-                return NotFound();
+                id = DefeaultID;
             }
 
             Steam data = new Steam();
-            var respNew = data.MakeRequest(data.BuildURL(id));
-
             SteamViewModel model = new SteamViewModel();
+
+            var respNew = data.MakeRequest(data.BuildURL(id));
 
             //success
             if (respNew.StatusCode == 200)
-            {
+            {             
                 SetModelData(respNew, model);
 
                 if (!String.IsNullOrEmpty(searchString))
@@ -121,7 +130,7 @@ namespace SteamAPI.Controllers
                         model.Games = model.Games.OrderBy(s => s.PlaytimeForever).ToList();
                         break;
                 }
-                }
+            }
             //failure
             else
             {
@@ -132,18 +141,23 @@ namespace SteamAPI.Controllers
 
         private static void SetModelData(Result resp, SteamViewModel model)
         {
+            double TotalPlayTime = 0.0d;
+            double TotalPlayTime2W = 0.0d;
             foreach (var game in resp.Response.Response.Games)
             {
-                model.PlaytimeForever += game.PlaytimeForever;
-                model.Playtime2weeks += game.Playtime2weeks ?? 0;
-                var playtime4e = Math.Round(model.PlaytimeForever / 1440.0d, 1);
-                var playtime2W = Math.Round(model.Playtime2weeks/ 60, 1) ;
-                model.Games.Add(new GameInfo(game.Appid, game.Name, game.ImgIconUrl, playtime2W, playtime4e));
+                TotalPlayTime += game.PlaytimeForever;
+                TotalPlayTime2W  += game.Playtime2weeks ?? 0;
+
+                double GamePlaytime = Math.Round(game.PlaytimeForever / 1440.0d, 1);
+                int IntGamePlaytime2W = game.Playtime2weeks ?? 0;
+                double GamePlaytime2W = Math.Round(IntGamePlaytime2W / 60.0d, 1);
+                
+                model.Games.Add(new GameInfo(game.Appid, game.Name, game.ImgIconUrl, GamePlaytime2W, GamePlaytime));
             }
             model.GameCount = resp.Response.Response.GameCount;         
 
-            model.PlaytimeForever = Math.Round(model.PlaytimeForever / 1440.0d, 1);
-            model.Playtime2weeks = Math.Round(model.Playtime2weeks / 60, 1);
+            model.PlaytimeForever = Math.Round(TotalPlayTime / 1440.0d, 1);
+            model.Playtime2weeks = Math.Round(TotalPlayTime2W / 60, 1);
         }
 
         

@@ -36,6 +36,8 @@ namespace SteamAPI
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            
+
 
             app.UseStaticFiles();
 

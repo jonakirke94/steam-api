@@ -12,7 +12,7 @@
     </form>
 </div>
 
-@if(!String.IsNullOrEmpty(Model.ErrorMsg))
+@if (!String.IsNullOrEmpty(Model.ErrorMsg))
 {
     <h1>@Model.ErrorMsg</h1>
 }
@@ -30,27 +30,26 @@
                 <td>@Model.GameCount</td>
                 <td>@Model.Playtime2weeks</td>
                 <td>@Model.PlaytimeForever</td>
+            </tr>
     </tbody>
 
 </table>
 
 <hr />
 
-<form asp-action="Index" method="get" class="form-inline">
-    <div class="form-actions no-color">
-        <p>
+<form asp-action="Index" method="post" class="form-inline">
             <div class="form-group ">
                 <input type="text" name="SearchString" value="@ViewData["currentFilter"]" class="form-control" />
-                <input type="submit" value="Filter" class="btn btn-primary" />
+                <input type="submit" value="Filter" class="btn btn-primary" asp-route-id="@Model.Id"/>
              </div>
-</p>
-    </div>
+    <input type="hidden" asp-for="Filter" value="@ViewData["currentFilter"]" /> 
 </form>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["GameSortParm"]">Game</a></th>
+            @{ TempData["SteamID"] = "lol"; }
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["GameSortParm"]">Game</a> </th>
             <th><a asp-action="Index" asp-route-sortOrder="@ViewData["2WSortParm"]">Playtime 2w (h)</a></th>
             <th><a asp-action="Index" asp-route-sortOrder="@ViewData["AlltimeSortParm"]">Alltime (d)</a></th>
             <th>Icon</th>

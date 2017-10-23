@@ -13,8 +13,7 @@ namespace SteamAPI.Models
         public int GameCount { get; set; }
         public double Playtime2weeks { get; set; }
         public double PlaytimeForever { get; set; }
-        public string ErrorMsg { get; set; }
-
+        public string ErrorMsg { get; set; } 
         public string Filter { get; set; }
 
         public SteamViewModel()
