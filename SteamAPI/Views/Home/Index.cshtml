@@ -1,0 +1,73 @@
+﻿@model SteamViewModel
+
+
+<div class="form-wrapper">
+    <form asp-action="index" class="form-inline">
+        <div class="form-group ">
+            <label asp-for="Id" class="control-label">Enter steam ID</label>
+            <input asp-for="Id" class="form-control" />
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary" type="submit" asp-route-id="@Model.Id">Submit</button>
+    </form>
+</div>
+
+@if(!String.IsNullOrEmpty(Model.ErrorMsg))
+{
+    <h1>@Model.ErrorMsg</h1>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Games Owned</th>
+            <th>Total Playtime 2w (h)</th>
+            <th>Forever Playtime (d)</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>@Model.GameCount</td>
+                <td>@Model.Playtime2weeks</td>
+                <td>@Model.PlaytimeForever</td>
+    </tbody>
+
+</table>
+
+<hr />
+
+<form asp-action="Index" method="get" class="form-inline">
+    <div class="form-actions no-color">
+        <p>
+            <div class="form-group ">
+                <input type="text" name="SearchString" value="@ViewData["currentFilter"]" class="form-control" />
+                <input type="submit" value="Filter" class="btn btn-primary" />
+             </div>
+</p>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["GameSortParm"]">Game</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["2WSortParm"]">Playtime 2w (h)</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["AlltimeSortParm"]">Alltime (d)</a></th>
+            <th>Icon</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model.Games)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Playtime2weeks</td>
+                    <td>@item.PlaytimeForever</td>
+                     @{var img = "http://media.steampowered.com/steamcommunity/public/images/apps/" + item.AppId + "/" + item.LogoUrl + ".jpg";
+                            <td><img src=@img /></td>
+                     }
+                </tr>
+            }
+    </tbody>
+    
+</table>

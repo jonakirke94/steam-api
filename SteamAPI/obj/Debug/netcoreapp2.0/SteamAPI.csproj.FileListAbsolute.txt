@@ -1,0 +1,11 @@
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.deps.json
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.runtimeconfig.json
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.runtimeconfig.dev.json
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.dll
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.pdb
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.csprojResolveAssemblyReference.cache
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.AssemblyInfoInputs.cache
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.AssemblyInfo.cs
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.dll
+C:\Users\Jonathan\source\repos\SteamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.pdb
