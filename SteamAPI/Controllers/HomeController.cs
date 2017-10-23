@@ -82,22 +82,22 @@ namespace SteamAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string id, string sortOrder, string searchString)
+        public IActionResult Index(string Id, string sortOrder, string searchString)
         {
             ViewData["GameSortParm"] = String.IsNullOrEmpty(sortOrder) || sortOrder == "game_asc" ? "game_desc" : "game_asc";
             ViewData["2WSortParm"] = String.IsNullOrEmpty(sortOrder) || sortOrder == "2w_asc" ? "2w_desc" : "2w_asc";
             ViewData["AlltimeSortParm"] = String.IsNullOrEmpty(sortOrder) || sortOrder == "alltime_asc" ? "alltime_desc" : "alltime_asc";
             ViewData["CurrentFilter"] = searchString;
 
-            if (id == null)
+            if (Id == null)
             {
-                id = DefeaultID;
+                Id = DefeaultID;
             }
 
             Steam data = new Steam();
             SteamViewModel model = new SteamViewModel();
 
-            var respNew = data.MakeRequest(data.BuildURL(id));
+            var respNew = data.MakeRequest(data.BuildURL(Id));
 
             //success
             if (respNew.StatusCode == 200)

@@ -8,7 +8,7 @@
             <input asp-for="Id" class="form-control" />
             <span asp-validation-for="Id" class="text-danger"></span>
         </div>
-        <button class="btn btn-primary" type="submit" asp-route-id="@Model.Id">Submit</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>
 
@@ -40,15 +40,16 @@
 <form asp-action="Index" method="post" class="form-inline">
             <div class="form-group ">
                 <input type="text" name="SearchString" value="@ViewData["currentFilter"]" class="form-control" />
-                <input type="submit" value="Filter" class="btn btn-primary" asp-route-id="@Model.Id"/>
+                <input type="submit" value="Filter" class="btn btn-primary" asp-route-Id="@Model.Id"/>
+                <input type="hidden" asp-for="Filter" value="@ViewData["currentFilter"]" />
+                <input type="hidden" asp-for="Id" value="@Model.Id" /> 
              </div>
-    <input type="hidden" asp-for="Filter" value="@ViewData["currentFilter"]" /> 
 </form>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            @{ TempData["SteamID"] = "lol"; }
+            @{ TempData["SteamID"] = Model.Id; }
             <th><a asp-action="Index" asp-route-sortOrder="@ViewData["GameSortParm"]">Game</a> </th>
             <th><a asp-action="Index" asp-route-sortOrder="@ViewData["2WSortParm"]">Playtime 2w (h)</a></th>
             <th><a asp-action="Index" asp-route-sortOrder="@ViewData["AlltimeSortParm"]">Alltime (d)</a></th>
