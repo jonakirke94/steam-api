@@ -141,23 +141,19 @@ namespace SteamAPI.Controllers
 
         private static void SetModelData(Result resp, SteamViewModel model)
         {
-            double TotalPlayTime = 0.0d;
-            double TotalPlayTime2W = 0.0d;
+            int TotalPlayTime = 0;
+            int TotalPlayTime2W = 0;
             foreach (var game in resp.Response.Response.Games)
             {
                 TotalPlayTime += game.PlaytimeForever;
-                TotalPlayTime2W  += game.Playtime2weeks ?? 0;
-
-                double GamePlaytime = Math.Round(game.PlaytimeForever / 1440.0d, 1);
-                int IntGamePlaytime2W = game.Playtime2weeks ?? 0;
-                double GamePlaytime2W = Math.Round(IntGamePlaytime2W / 60.0d, 1);
-                
-                model.Games.Add(new GameInfo(game.Appid, game.Name, game.ImgIconUrl, GamePlaytime2W, GamePlaytime));
+                TotalPlayTime2W  += game.Playtime2weeks;
+            
+                model.Games.Add(new GameInfo(game.Appid, game.Name, game.ImgIconUrl, Math.Round(game.Playtime2weeks / 60.0d, 1), Math.Round(game.PlaytimeForever / 1440.0d, 1)));
             }
             model.GameCount = resp.Response.Response.GameCount;         
 
             model.PlaytimeForever = Math.Round(TotalPlayTime / 1440.0d, 1);
-            model.Playtime2weeks = Math.Round(TotalPlayTime2W / 60, 1);
+            model.Playtime2weeks = Math.Round(TotalPlayTime2W / 60.0d, 1);
         }
 
         

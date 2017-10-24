@@ -28,7 +28,7 @@ namespace SteamAPI.Data
         public bool HasCommunityVisibleStats { get; set; }
 
         [JsonProperty("playtime_2weeks")]
-        public int? Playtime2weeks { get; set; }
+        public int Playtime2weeks { get; set; }
     }
 
     public class Response

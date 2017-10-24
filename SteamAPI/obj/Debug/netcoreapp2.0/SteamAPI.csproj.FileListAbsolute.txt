@@ -20,3 +20,14 @@ C:\Users\inter\OneDrive\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\Stea
 C:\Users\inter\OneDrive\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.AssemblyInfo.cs
 C:\Users\inter\OneDrive\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.dll
 C:\Users\inter\OneDrive\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.pdb
+C:\Users\Anton\Documents\steamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.deps.json
+C:\Users\Anton\Documents\steamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.runtimeconfig.json
+C:\Users\Anton\Documents\steamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.runtimeconfig.dev.json
+C:\Users\Anton\Documents\steamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.dll
+C:\Users\Anton\Documents\steamAPI\SteamAPI\bin\Debug\netcoreapp2.0\SteamAPI.pdb
+C:\Users\Anton\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.csprojResolveAssemblyReference.cache
+C:\Users\Anton\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.csproj.CoreCompileInputs.cache
+C:\Users\Anton\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.AssemblyInfoInputs.cache
+C:\Users\Anton\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.AssemblyInfo.cs
+C:\Users\Anton\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.dll
+C:\Users\Anton\Documents\steamAPI\SteamAPI\obj\Debug\netcoreapp2.0\SteamAPI.pdb

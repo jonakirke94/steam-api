@@ -12533,7 +12533,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\inter\\.nuget\\packages\\": {},
+    "C:\\Users\\Anton\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -12542,17 +12542,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\inter\\OneDrive\\Documents\\steamAPI\\SteamAPI\\SteamAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Anton\\Documents\\steamAPI\\SteamAPI\\SteamAPI.csproj",
       "projectName": "SteamAPI",
-      "projectPath": "C:\\Users\\inter\\OneDrive\\Documents\\steamAPI\\SteamAPI\\SteamAPI.csproj",
-      "packagesPath": "C:\\Users\\inter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\inter\\OneDrive\\Documents\\steamAPI\\SteamAPI\\obj\\",
+      "projectPath": "C:\\Users\\Anton\\Documents\\steamAPI\\SteamAPI\\SteamAPI.csproj",
+      "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Anton\\Documents\\steamAPI\\SteamAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\inter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
