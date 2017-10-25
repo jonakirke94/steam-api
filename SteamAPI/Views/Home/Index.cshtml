@@ -50,9 +50,25 @@
     <thead>
         <tr>
             @{ TempData["SteamID"] = Model.Id; }
-            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["GameSortParm"]">Game</a> </th>
-            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["2WSortParm"]">Playtime 2w (h)</a></th>
-            <th><a asp-action="Index" asp-route-sortOrder="@ViewData["AlltimeSortParm"]">Alltime (d)</a></th>
+            <th>
+                <form asp-action="Index" method="post">
+                    <input type="hidden" name="sortOrder" value="@ViewData["GameSortParm"]" />
+                    <input type="hidden" asp-for="Id" value="@Model.Id" /> 
+                    <input class="btn-link" type="submit" value="Game" />
+                </form>
+            </th>
+            <th>
+                <form asp-action="Index" method="post">
+                    <input type="hidden" name="sortOrder" value="@ViewData["2WSortParm"]" />
+                    <input class="btn-link" type="submit" value="Playtime 2w (h)" />
+                </form>
+            </th>
+            <th>
+                <form asp-action="Index" method="post">
+                    <input type="hidden" name="sortOrder" value="@ViewData["AlltimeSortParm"]" />
+                    <input class="btn-link" type="submit" value="Alltime (d)" />
+                </form>
+            </th>
             <th>Icon</th>
         </tr>
     </thead>
